@@ -1,0 +1,68 @@
+{
+  "name": "document-management-api",
+  "version": "1.0.0",
+  "description": "A comprehensive REST API for learning authentication and authorization patterns",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "migrate": "knex migrate:latest",
+    "migrate:rollback": "knex migrate:rollback",
+    "seed": "knex seed:run",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "setup": "npm run migrate && npm run seed",
+    "reset-db": "npm run migrate:rollback && npm run migrate && npm run seed"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "authentication",
+    "authorization",
+    "jwt",
+    "oauth",
+    "rbac",
+    "abac",
+    "rest-api"
+  ],
+  "author": "Reza Behzadan",
+  "license": "MIT",
+  "type": "commonjs",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "compression": "^1.8.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.0.0",
+    "express": "^5.1.0",
+    "express-rate-limit": "^7.5.1",
+    "express-validator": "^7.2.1",
+    "helmet": "^8.1.0",
+    "jexl": "^2.3.0",
+    "jsonwebtoken": "^9.0.2",
+    "knex": "^3.1.0",
+    "pg": "^8.16.3",
+    "uuid": "^11.1.0",
+    "winston": "^3.17.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "jest": "^30.0.3",
+    "nodemon": "^3.1.10",
+    "superset": "^2.0.1"
+  },
+  "engines": {
+    "node": ">=22.17.0",
+    "npm": ">=11.4.2"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "coverageDirectory": "coverage",
+    "collectCoverageFrom": [
+      "src/**/*.js",
+      "!src/database/migrations/**",
+      "!src/database/seeds/**"
+    ]
+  }
+}
+

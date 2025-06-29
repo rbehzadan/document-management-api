@@ -109,7 +109,7 @@ src/
 
 ## 🔐 Authentication Roadmap
 
-- [x] **Foundation**: Document CRUD API
+- [x] **Foundation**: Document CRUD API with full test coverage
 - [ ] **Basic Auth**: Username/password authentication
 - [ ] **API Keys**: Service-to-service authentication
 - [ ] **JWT**: Stateless token authentication
@@ -147,7 +147,42 @@ npx knex migrate:status
 - **Validation**: express-validator
 - **Logging**: Winston
 - **Security**: Helmet, CORS, rate limiting
-- **Testing**: Jest + Supertest
+- **Testing**: Jest + Supertest (46 tests passing)
+
+## 🧪 Testing
+
+### Test Coverage
+- **Unit Tests**: Document model with complete CRUD coverage
+- **Integration Tests**: All API endpoints with validation scenarios
+- **Test Fixtures**: Reusable data and helpers
+- **Database Isolation**: Proper test setup with cleanup
+
+### Running Tests
+```bash
+# Run all tests
+npm test
+
+# Run only unit tests
+npm run test:unit
+
+# Run only integration tests
+npm run test:integration
+
+# Run tests with coverage report
+npm run test:coverage
+
+# Watch mode for development
+npm run test:watch
+```
+
+### Test Database Setup
+```bash
+# Setup test database
+npm run setup:test
+
+# The test suite uses document_management_test database
+# Tests run in isolation with proper cleanup between test cases
+```
 
 ## 📄 License
 
@@ -155,4 +190,4 @@ MIT License - see LICENSE file for details.
 
 ---
 
-**Status**: ✅ Core API Complete | 🚧 Authentication In Progress
+**Status**: ✅ Core API & Testing Complete | 🚧 Authentication In Progress

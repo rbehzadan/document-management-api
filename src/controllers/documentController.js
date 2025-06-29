@@ -10,6 +10,16 @@ class DocumentController {
    */
   static async getAllDocuments(req, res, next) {
     try {
+      // Check for validation errors first
+      const errors = validationResult(req);
+      if (!errors.isEmpty()) {
+        return res.status(HTTP_STATUS.BAD_REQUEST).json({
+          error: 'Validation failed',
+          details: errors.array(),
+          timestamp: new Date().toISOString()
+        });
+      }
+
       const {
         owner_id,
         classification,
@@ -72,6 +82,16 @@ class DocumentController {
    */
   static async getDocumentById(req, res, next) {
     try {
+      // Check for validation errors first
+      const errors = validationResult(req);
+      if (!errors.isEmpty()) {
+        return res.status(HTTP_STATUS.BAD_REQUEST).json({
+          error: 'Validation failed',
+          details: errors.array(),
+          timestamp: new Date().toISOString()
+        });
+      }
+
       const { id } = req.params;
 
       const document = await Document.findById(id);
@@ -202,6 +222,16 @@ class DocumentController {
    */
   static async deleteDocument(req, res, next) {
     try {
+      // Check for validation errors first
+      const errors = validationResult(req);
+      if (!errors.isEmpty()) {
+        return res.status(HTTP_STATUS.BAD_REQUEST).json({
+          error: 'Validation failed',
+          details: errors.array(),
+          timestamp: new Date().toISOString()
+        });
+      }
+
       const { id } = req.params;
 
       const deleted = await Document.delete(id);

@@ -7,8 +7,8 @@ const rateLimit = require('express-rate-limit');
 const logger = require('../utils/logger');
 const errorHandler = require('../middleware/errorHandler');
 
-// Import routes (will be created next)
-// const documentRoutes = require('../routes/documents');
+// Import routes
+const documentRoutes = require('../routes/documents');
 
 const app = express();
 
@@ -66,8 +66,8 @@ app.get('/health', (req, res) => {
   });
 });
 
-// API routes (will be enabled once routes are created)
-// app.use('/api/documents', documentRoutes);
+// API routes
+app.use('/api/documents', documentRoutes);
 
 // 404 handler
 app.use((req, res) => {
